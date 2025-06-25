@@ -15,6 +15,8 @@ Questo progetto è un backend sviluppato in **Node.js** con **Express.js** e **M
 
 ```bash
 git clone https://github.com/MrBrollo/AppViaggi.git
+```
+```bash
 cd AppViaggi
 ```
 
@@ -43,24 +45,24 @@ source migrations.sql
 ```bash
 Node script.js
 ```
-📘 Endpoints disponibili
+## 📘 Endpoints disponibili
 
-🎫 Biglietti
+### 🎫 Biglietti
 * POST /api/biglietti — Crea un nuovo biglietto
 * PUT /api/biglietti/:id — Modifica un biglietto esistente
 * DELETE /api/biglietti/:id — Elimina un biglietto
 
-👤 Utenti
+### 👤 Utenti
 * POST /api/utenti — Crea un nuovo utente
 * PUT /api/utenti/:id — Modifica un utente esistente
 * DELETE /api/utenti/:id — Elimina un utente
 
-🧾 Acquisti
+### 🧾 Acquisti
 * POST /api/acquisti — Registra un nuovo acquisto
 * PUT /api/acquisti/:id — Modifica un acquisto
 * DELETE /api/acquisti/:id — Elimina un acquisto
 * GET /api/acquisti — Visualizza tutti gli acquisti
 
-Parametri di filtro supportati:
+### Parametri di filtro supportati:
 * data — Filtra per data (es: ?data=2025-06-25)
 * id_biglietto — Filtra per biglietto (es: ?id_biglietto=2)
