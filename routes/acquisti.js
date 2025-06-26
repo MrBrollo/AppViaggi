@@ -59,7 +59,7 @@ router.get('/', (req, res) => {
     a.id,
     DATE(a.data_acquisto) AS data_acquisto,
     u.nome AS nome_utente,
-    u.cognome AS cognome.utente,
+    u.cognome AS cognome_utente,
     u.email,
     b.nome AS nome_biglietto
     FROM acquisti a
