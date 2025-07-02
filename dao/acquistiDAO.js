@@ -1,7 +1,7 @@
 const db = require('../db');
 
 const acquistiDAO = {
-    getAll({ data, id_biglietto }, callback) {
+    getAll({ data, id_biglietto, limit = 10, offset = 0 }, callback) {
         let sql = `
         SELECT
             a.id,
@@ -27,7 +27,8 @@ const acquistiDAO = {
             params.push(id_biglietto);
         }
 
-        sql += ' ORDER BY a.data_acquisto DESC';
+        sql += ' ORDER BY a.data_acquisto DESC LIMIT ? OFFSET ?';
+        params.push(parseInt(limit), parseInt(offset));
 
         db.execute(sql, params, callback);
     },

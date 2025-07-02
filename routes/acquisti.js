@@ -4,8 +4,11 @@ const acquistiDAO = require('../dao/acquistiDAO');
 
 router.get('/', (req, res) => {
     const { data, id_biglietto } = req.query;
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 10;
+    const offset = (page - 1) * limit;
 
-    acquistiDAO.getAll({ data, id_biglietto }, (err, result) => {
+    acquistiDAO.getAll({ data, id_biglietto, limit, offset }, (err, result) => {
         if (err) return res.status(500).json({ errore: err.message });
         res.json(result);
     });

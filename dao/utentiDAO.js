@@ -1,9 +1,9 @@
 const db = require('../db');
 
 const utentiDAO = {
-    getAll(callback) {
-        const sql = 'SELECT * FROM utenti';
-        db.execute(sql, [], callback);
+    getAll({ limit = 10, offset = 0 }, callback) {
+        const sql = 'SELECT * FROM utenti LIMIT ? OFFSET ?';
+        db.execute(sql, [parseInt(limit), parseInt(offset)], callback);
     },
 
     create({ nome, cognome, email }, callback) {

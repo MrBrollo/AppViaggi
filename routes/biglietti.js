@@ -3,7 +3,11 @@ const router = express.Router();
 const bigliettiDAO = require('../dao/bigliettiDAO');
 
 router.get('/', (req, res) => {
-    bigliettiDAO.getAll((err, result) => {
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 10;
+    const offset = (page - 1) * limit;
+
+    bigliettiDAO.getAll({ limit, offset }, (err, result) => {
         if (err) return res.status(500).json({ errore: err.message });
         res.json(result);
     });
